@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="InteracoesMedicamentosasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Interacoes">
+          <Key>
+            <PropertyRef Name="interacaoId" />
+          </Key>
+          <Property Name="interacaoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="medicamento1Id" Type="int" Nullable="false" />
+          <Property Name="medicamento2Id" Type="int" Nullable="false" />
+          <Property Name="reacao" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Medicamentos">
+          <Key>
+            <PropertyRef Name="medicamentoId" />
+          </Key>
+          <Property Name="medicamentoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="descricao" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityContainer Name="InteracoesMedicamentosasModelStoreContainer">
+          <EntitySet Name="Interacoes" EntityType="Self.Interacoes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Medicamentos" EntityType="Self.Medicamentos" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="InteracoesMedicamentosasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Interacoes">
+          <Key>
+            <PropertyRef Name="interacaoId" />
+          </Key>
+          <Property Name="interacaoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="medicamento1Id" Type="Int32" Nullable="false" />
+          <Property Name="medicamento2Id" Type="Int32" Nullable="false" />
+          <Property Name="reacao" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Medicamentos">
+          <Key>
+            <PropertyRef Name="medicamentoId" />
+          </Key>
+          <Property Name="medicamentoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nome" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descricao" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="InteracoesMedicamentosasEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Interacoes" EntityType="Self.Interacoes" />
+          <EntitySet Name="Medicamentos" EntityType="Self.Medicamentos" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="InteracoesMedicamentosasModelStoreContainer" CdmEntityContainer="InteracoesMedicamentosasEntities">
+          <EntitySetMapping Name="Interacoes">
+            <EntityTypeMapping TypeName="InteracoesMedicamentosasModel.Interacoes">
+              <MappingFragment StoreEntitySet="Interacoes">
+                <ScalarProperty Name="interacaoId" ColumnName="interacaoId" />
+                <ScalarProperty Name="medicamento1Id" ColumnName="medicamento1Id" />
+                <ScalarProperty Name="medicamento2Id" ColumnName="medicamento2Id" />
+                <ScalarProperty Name="reacao" ColumnName="reacao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Medicamentos">
+            <EntityTypeMapping TypeName="InteracoesMedicamentosasModel.Medicamentos">
+              <MappingFragment StoreEntitySet="Medicamentos">
+                <ScalarProperty Name="medicamentoId" ColumnName="medicamentoId" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="descricao" ColumnName="descricao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

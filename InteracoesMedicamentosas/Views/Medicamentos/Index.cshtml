@@ -1,0 +1,116 @@
+﻿@model InteracoesMedicamentosas.Models.Medicamentos
+
+@{
+    Layout = null;
+}
+
+@{
+    if (TempData["Message"] != null)
+    {
+        <script type="text/javascript">
+            alert(@Html.Raw(Json.Encode(TempData["Message"])));
+        </script>
+    }
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" type="text/css" href="~/content/materialize/css/materialize.css" media="screen,projection">
+    <link rel="stylesheet" type="text/css" href="~/content/materialize/css/style.css" media="screen,projection">
+    <link rel="stylesheet" type="text/css" href="~/content/materialize/css/additional.css" media="screen,projection">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<body>
+    <div>
+        <nav class="grey darken-3">
+            <div class="nav-wrapper">
+                <div href="#" class="brand-logo center hide-on-med-and-down">
+                    <span>Interações</span><span class="orange-text text-lighten-1">Medicamentosas</span>
+                </div>
+                <div href="#" class="brand-logo center hide-on-large-only" style="font-size: 20px;">
+                    <span>Interações</span><span class="orange-text text-lighten-1">Medicamentosas</span>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <br />
+    <br />
+
+    <div class="container">
+        <div class="section">
+            <div class="row">
+                <div class="card-panel grey lighten-3 z-depth-0 col s12 m6">
+                    <div class="icon-block">
+                        <h2 class="center grey-text text-darken-1"><i class="material-icons left">info</i></h2>
+                        <p>
+                            Você pode consultar interações de medicamentos no seu conforto a qualquer hora e qualquer lugar. Basta selecionar os medicamentos cujos  quais deseja consultar e clicar em "Verificar" para checar o quadro de interação.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card-panel orange lighten-4 z-depth-0 col s12 m6">
+                    <div class="icon-block">
+                        <h2 class="center grey-text text-darken-1"><i class="material-icons left">info</i></h2>
+                        <p>
+                            Além de poder consultar interações entre medicamentos, você pode consultar informações sobre um medicamento caso não tenha realmente certeza do que se trata, ou, simplesmente quiser saber mais sobre aquele medicamento em específico.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container center">
+        <form method="get" action="@Url.Action("Verifica","Interacoes")">
+            <div class="row">
+                <div class="">
+                    <div class="input-field col s11 m5">
+                        @Html.DropDownList("medicamentoId", null, htmlAttributes: new { @class = "form-control", Name = "med1", id="ddl1" })
+                        @Html.ValidationMessageFor(model => model.medicamentoId, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="col s1" style="padding-top: 20px;">
+                        <a href="#" onclick="Info('ddl1')"><i class="material-icons orange-text text-darken-3">info</i></a>
+                    </div>
+                </div>
+
+                <div class="">
+                    <div class="input-field col s11 m5">
+                        @Html.DropDownList("medicamentoId", null, htmlAttributes: new { @class = "form-control", Name = "med2", id="ddl2" })
+                        @Html.ValidationMessageFor(model => model.medicamentoId, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="col s1" style="padding-top: 20px;">
+                        <a href="#" onclick="Info('ddl2')"><i class="material-icons orange-text text-darken-3">info</i></a>                        
+                    </div>
+                </div>
+            </div>
+            <br />
+
+
+            <button type="submit" class="btn grey darken-3 orange-text text-lighten-2 waves-effect waves-light">
+                Verificar<i class="material-icons right">check</i>
+             </button>
+
+        </form>
+    </div>
+    
+    <script type="text/javascript">
+        function Info(ddl) {
+                var IdMed = $("#" + ddl).val();
+                window.location = '@Url.Action("Details","Medicamentos")/' + IdMed;
+            }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="~/scripts/materialize/materialize.js"></script>
+    <script src="~/scripts/materialize/modal.js"></script>
+    <script src="~/scripts/materialize/ddl.js"></script>
+
+</body>
+</html>

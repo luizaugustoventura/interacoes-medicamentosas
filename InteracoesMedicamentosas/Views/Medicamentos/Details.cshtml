@@ -1,0 +1,44 @@
+﻿@model InteracoesMedicamentosas.Models.Medicamentos
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Descrição</title>
+    <link rel="stylesheet" type="text/css" href="~/content/materialize/css/materialize.css" media="all,projection">
+    <link rel="stylesheet" type="text/css" href="~/content/materialize/css/style.css" media="all,projection">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div class="vertically-aligned">
+        <div class="container center">
+            <div class="center row">
+                <div class="col s12">
+                    <div class="card grey darken-3" id="conteudo_reacao">
+                        <div id="descricao" class="card-content white-text">
+                            <span class="card-title">Descrição</span>
+                            <br />
+                            <p class="left-align">
+                                <b class="orange-text text-darken-3">Medicamento: </b>@Html.DisplayFor(model => model.nome)
+                                <br />
+                                <b class="orange-text text-darken-3">Descrição: </b>@Html.DisplayFor(model => model.descricao)
+                            </p>
+                        </div>
+                        <div class="card-action">
+                            <a href="#printElem" onclick="printElem('descricao');">Imprimir</a>
+                            <a href="@Url.Action("Index", "Medicamentos")">Voltar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/scripts/materialize/print.js"></script>
+</body>
+</html>
