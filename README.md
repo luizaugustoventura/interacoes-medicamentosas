@@ -7,6 +7,9 @@
   No front-end foi utilizado o framework Materialize 0.97.6.
   
   
+*ATENÇÃO: OS DADOS UTILIZADOS NESTE PROJETO NÃO ADVÊM DE PESQUISAS EM SITES DE INTERNET, JÁ QUE FORAM UTILIZADOS COM O ÚNICO PROPÓSITO DE APRENDIZAGEM. PORTANTO, NÃO GARANTIMOS A VERACIDADE DOS MESMOS!
+  
+  
 Capturas de tela:
 
 ![Captura página inicial](screenshots/captura_inicio.png)
