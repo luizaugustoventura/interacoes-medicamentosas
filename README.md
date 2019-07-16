@@ -9,8 +9,9 @@
   
 #### ATENÇÃO: OS DADOS UTILIZADOS NESTE PROJETO ADVÊM DE PESQUISAS EM SITES DE INTERNET, JÁ QUE FORAM UTILIZADOS COM O ÚNICO PROPÓSITO DE APRENDIZAGEM. PORTANTO, NÃO GARANTIMOS A VERACIDADE DOS MESMOS!
   
-  
-##### Capturas de tela:
+##### Outros desenvolvedores: Willian Pereira Mariano
+
+#### Capturas de tela:
 
 ![Captura página inicial](screenshots/captura_inicio.png)
 
